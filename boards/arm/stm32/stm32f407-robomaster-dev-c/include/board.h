@@ -1,9 +1,9 @@
 /****************************************************************************
- * boards/arm/stm32/stm3240g-eval/include/board.h
+ * boards/arm/stm32/stm32f407-robomaster-dev-c/include/board.h
  * include/arch/board/board.h
  *
- *   Copyright (C) 2011-2012, 2016 Gregory Nutt. All rights reserved.
- *   Author: Gregory Nutt <gnutt@nuttx.org>
+ *   Copyright (C) 2020 Cheng Huimin. All rights reserved.
+ *   Author: Cheng Huimin
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -34,8 +34,8 @@
  *
  ****************************************************************************/
 
-#ifndef __BOARD_ARM_STM32_ROBOMASTER_DEV_CCLUDE_BOARD_H
-#define __BOARD_ARM_STM32_ROBOMASTER_DEV_CCLUDE_BOARD_H
+#ifndef __BOARD_ARM_STM32_ROBOMASTER_DEV_C_INCLUDE_BOARD_H
+#define __BOARD_ARM_STM32_ROBOMASTER_DEV_C_INCLUDE_BOARD_H
 
 /****************************************************************************
  * Included Files
@@ -238,28 +238,26 @@
 #define BOARD_LED1        0
 #define BOARD_LED2        1
 #define BOARD_LED3        2
-#define BOARD_LED4        3
-#define BOARD_NLEDS       4
+#define BOARD_NLEDS       3
 
 /* LED bits for use with board_userled_all() */
 
 #define BOARD_LED1_BIT    (1 << BOARD_LED1)
 #define BOARD_LED2_BIT    (1 << BOARD_LED2)
 #define BOARD_LED3_BIT    (1 << BOARD_LED3)
-#define BOARD_LED4_BIT    (1 << BOARD_LED4)
 
 /* If CONFIG_ARCH_LEDs is defined, then NuttX will control the 4 LEDs on board the
- * STM3240G-EVAL.  The following definitions describe how NuttX controls the LEDs:
+ * RoboMaster Dev Board Type C.  The following definitions describe how NuttX controls the LEDs:
  */
 
-#define LED_STARTED       0  /* LED1 */
-#define LED_HEAPALLOCATE  1  /* LED2 */
-#define LED_IRQSENABLED   2  /* LED1 + LED2 */
-#define LED_STACKCREATED  3  /* LED3 */
-#define LED_INIRQ         4  /* LED1 + LED3 */
-#define LED_SIGNAL        5  /* LED2 + LED3 */
-#define LED_ASSERTION     6  /* LED1 + LED2 + LED3 */
-#define LED_PANIC         7  /* N/C  + N/C  + N/C + LED4 */
+#define LED_STARTED       0  /* OFF */
+#define LED_HEAPALLOCATE  1  /* LED1 */
+#define LED_IRQSENABLED   2  /* LED2 */
+#define LED_STACKCREATED  3  /* LED1 + LED2 */
+#define LED_INIRQ         4  /* LED3 */
+#define LED_SIGNAL        5  /* LED3 */
+#define LED_ASSERTION     6  /* LED3 */
+#define LED_PANIC         7  /* LED1 */
 
 /* Button definitions ***************************************************************/
 /* The STM3240G-EVAL supports three buttons: */
@@ -304,8 +302,8 @@
  * - PC10 is MicroSDCard_D2 & RSS232/IrDA_TX
  */
 
-#define GPIO_USART3_RX GPIO_USART3_RX_2
-#define GPIO_USART3_TX GPIO_USART3_TX_2
+#define GPIO_USART1_RX GPIO_USART1_RX_2
+#define GPIO_USART1_TX GPIO_USART1_TX_1
 
 /* Ethernet:
  *
@@ -510,4 +508,4 @@ void stm3240g_lcdclear(uint16_t color);
 #endif
 
 #endif /* __ASSEMBLY__ */
-#endif /* __BOARD_ARM_STM32_ROBOMASTER_DEV_CCLUDE_BOARD_H */
+#endif /* __BOARD_ARM_STM32_ROBOMASTER_DEV_C_INCLUDE_BOARD_H */

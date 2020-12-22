@@ -479,7 +479,7 @@ void board_autoled_initialize(void);
  *   Set the LED configuration into the ON condition for the state provided
  *   by the led parameter.  This may be one of:
  *
- *     LED_STARTED       NuttX has been started
+ *            NuttX has been started
  *     LED_HEAPALLOCATE  Heap has been allocated
  *     LED_IRQSENABLED   Interrupts enabled
  *     LED_STACKCREATED  Idle stack created
