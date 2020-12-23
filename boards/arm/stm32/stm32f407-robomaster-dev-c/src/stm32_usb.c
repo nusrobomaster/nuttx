@@ -155,9 +155,10 @@ void stm32_usbinitialize(void)
    */
 
 #ifdef CONFIG_STM32_OTGFS
-  stm32_configgpio(GPIO_OTGFS_VBUS);
-  stm32_configgpio(GPIO_OTGFS_PWRON);
-  stm32_configgpio(GPIO_OTGFS_OVER);
+  // VBUS shares the same PA9 pin as the UART1_TX
+  // stm32_configgpio(GPIO_OTGFS_VBUS);
+  // stm32_configgpio(GPIO_OTGFS_PWRON);
+  // stm32_configgpio(GPIO_OTGFS_OVER);
 #endif
 }
 
