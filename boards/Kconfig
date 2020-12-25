@@ -1636,6 +1636,15 @@ config ARCH_BOARD_STM3240G_EVAL
 		microcontroller (ARM Cortex-M4 with FPU).  This port uses a GNU Cortex-M4
 		toolchain (such as CodeSourcery).
 
+config ARCH_BOARD_STM32_ROBOMASTER_DEV_A
+	bool "RoboMaster Development Board Type A"
+	depends on ARCH_CHIP_STM32F427I
+	select ARCH_HAVE_LEDS
+	select ARCH_HAVE_BUTTONS
+	select ARCH_HAVE_IRQBUTTONS
+	---help---
+		RoboMaster Development Board Type A Initial Nuttx Config.
+
 config ARCH_BOARD_STM32_ROBOMASTER_DEV_C
 	bool "RoboMaster Development Board Type C"
 	depends on ARCH_CHIP_STM32F407IG
@@ -2316,6 +2325,7 @@ config ARCH_BOARD
 	default "stm3210e-eval"            if ARCH_BOARD_STM3210E_EVAL
 	default "stm3220g-eval"            if ARCH_BOARD_STM3220G_EVAL
 	default "stm3240g-eval"            if ARCH_BOARD_STM3240G_EVAL
+ 	default "stm32f427-robomaster-dev-a" if ARCH_BOARD_STM32_ROBOMASTER_DEV_A	
 	default "stm32f407-robomaster-dev-c" if ARCH_BOARD_STM32_ROBOMASTER_DEV_C
 	default "stm32f3discovery"         if ARCH_BOARD_STM32F3_DISCOVERY
 	default "stm32f334-disco"          if ARCH_BOARD_STM32F334_DISCO
@@ -2806,6 +2816,9 @@ source "boards/arm/stm32/stm3220g-eval/Kconfig"
 endif
 if ARCH_BOARD_STM3240G_EVAL
 source "boards/arm/stm32/stm3240g-eval/Kconfig"
+endif
+if ARCH_BOARD_STM32_ROBOMASTER_DEV_A
+source "boards/arm/stm32/stm32f427-robomaster-dev-a/Kconfig"
 endif
 if ARCH_BOARD_STM32_ROBOMASTER_DEV_C
 source "boards/arm/stm32/stm32f407-robomaster-dev-c/Kconfig"
