@@ -408,8 +408,21 @@
  * - PB9  is I2C1_SDA
  */
 
-#define GPIO_I2C1_SCL       GPIO_I2C1_SCL_1
-#define GPIO_I2C1_SDA       GPIO_I2C1_SDA_2
+#define GPIO_I2C2_SCL       GPIO_I2C2_SCL_2
+#define GPIO_I2C2_SDA       GPIO_I2C2_SDA_2
+
+/* SPI
+ *
+ * There are sensors (MPU6500) on SPI5, and SPI4 is connected to the user defined pinouts
+ */
+
+#define GPIO_SPI4_MISO	GPIO_SPI4_MISO_1
+#define GPIO_SPI4_MOSI	GPIO_SPI4_MOSI_1
+#define GPIO_SPI4_SCK	GPIO_SPI4_SCK_1
+
+#define GPIO_SPI5_MISO  GPIO_SPI5_MISO_1
+#define GPIO_SPI5_MOSI	GPIO_SPI5_MOSI_1
+#define GPIO_SPI5_SCK	GPIO_SPI5_SCK_1
 
 /* DMA Channel/Stream Selections *****************************************************/
 /* Stream selections are arbitrary for now but might become important in the future

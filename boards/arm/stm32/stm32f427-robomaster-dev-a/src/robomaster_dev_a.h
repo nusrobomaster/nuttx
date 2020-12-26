@@ -15,18 +15,8 @@
  * Pre-processor Definitions
  ****************************************************************************/
 /* Configuration ****************************************************************************/
-/* How many SPI modules does this chip support? */
 
-#if STM32_NSPI < 1
-#  undef CONFIG_STM32_SPI1
-#  undef CONFIG_STM32_SPI2
-#  undef CONFIG_STM32_SPI3
-#elif STM32_NSPI < 2
-#  undef CONFIG_STM32_SPI2
-#  undef CONFIG_STM32_SPI3
-#elif STM32_NSPI < 3
-#  undef CONFIG_STM32_SPI3
-#endif
+
 
 /* You can use either CAN1 or CAN2, but you can't use both because they share the same transceiver */
 

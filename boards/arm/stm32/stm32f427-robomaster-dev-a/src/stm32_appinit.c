@@ -41,6 +41,8 @@
 
 #include <nuttx/board.h>
 
+#include <debug.h>
+
 #include "robomaster_dev_a.h"
 
 /****************************************************************************

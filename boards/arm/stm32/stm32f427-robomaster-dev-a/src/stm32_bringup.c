@@ -79,6 +79,11 @@
 #include "stm32_i2c.h"
 #include "robomaster_dev_a.h"
 
+#include <stm32_spi.h>
+
+#include <nuttx/spi/spi.h>
+#include <nuttx/spi/spi_transfer.h>
+
 /****************************************************************************
  * Pre-processor Definitions
  ****************************************************************************/
@@ -225,9 +230,38 @@ static void stm32_i2ctool(void)
  *     Called from the NSH library
  *
  ****************************************************************************/
+static struct spi_dev_s *spi4;
+static struct spi_dev_s *spi5;
 
 int stm32_bringup(void)
 {
+
+  syslog(LOG_INFO, "stm32_bringup()\n");
+  
+  spi4= stm32_spibus_initialize(4);
+
+  if (!spi4) {
+		syslog(LOG_ERR, "[boot] FAILED to initialize SPI port %d\n", 4);
+	}
+
+  spi_register(spi4, 4);
+
+  spi5= stm32_spibus_initialize(5);
+
+  if (!spi5) {
+		syslog(LOG_ERR, "[boot] FAILED to initialize SPI port %d\n", 5);
+	}else
+  {
+      syslog(LOG_INFO, "[boot] Successfully initialize SPI port %d\n", 5);
+  }
+  
+
+  SPI_SETFREQUENCY(spi5, 10000000);
+	SPI_SETBITS(spi5, 8);
+	SPI_SETMODE(spi5, SPIDEV_MODE3);
+
+  spi_register(spi5, 5);
+
 #ifdef HAVE_RTC_DRIVER
   FAR struct rtc_lowerhalf_s *lower;
 #endif
