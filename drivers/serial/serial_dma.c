@@ -46,6 +46,9 @@
 
 #include <nuttx/serial/serial.h>
 
+// fix SIGINT SIGSTP undefined error
+#include <nuttx/signal.h>
+
 #if defined(CONFIG_SERIAL_TXDMA) || defined(CONFIG_SERIAL_RXDMA)
 
 /****************************************************************************
